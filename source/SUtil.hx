@@ -60,7 +60,7 @@ class SUtil {
 		}
 
 		if (!FileSystem.exists(sPath + "/" + "." + Application.current.meta.get("file"))){
-			FileSystem.createDirectory(sPath + "/" + "." + Application.current.meta.get("file"));
+			FileSystem.createDirectory(sPath + "/" + ".vs starecrown psych engine" + Application.current.meta.get("file"));
 		}
 		if (!FileSystem.exists(SUtil.getPath() + "crash")){
 			FileSystem.createDirectory(SUtil.getPath() + "crash");
