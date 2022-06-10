@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty' #if android, 'Chart Editor' #end, 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'story_mode', 'freeplay', 'options', 'Change Difficulty' #if android, 'Chart Editor' #end, 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -223,9 +223,17 @@ class PauseSubState extends MusicBeatSubstate
 			{
 				case "Resume":
 					close();
+                                case 'story_mode':
+				MusicBeatState.switchState(new StoryMenuState());
+                                case 'freeplay':
+				MusicBeatState.switchState(new FreeplayState());
 				case 'Change Difficulty':
-					menuItems = difficultyChoices;
-					regenMenu();
+                                menuItems = difficultyChoices;
+				regenMenu();
+                                case 'options':
+				LoadingState.loadAndSwitchState(new options.OptionsState());
+                                case 'changers':
+				LoadingState.loadAndSwitchState(new GameplayChangersSubstate());
 				case 'Toggle Practice Mode':
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;

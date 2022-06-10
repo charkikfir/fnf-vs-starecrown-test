@@ -101,15 +101,10 @@ class FreeplayState extends MusicBeatState
 			}
 		}*/
 
-		bg = new FlxSprite();
-		bg.frames = Paths.getSparrowAtlas('menuBG');
-		bg.animation.addByPrefix('idle', 'jiemianBackground', 12, true);
-		bg.animation.play('idle');
-		bg.setGraphicSize(Std.int(bg.width * 0.67));
-		bg.updateHitbox();
-		bg.screenCenter();
+		bg = new FlxSprite().loadGraphic(Paths.image('freeplay-menu'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+		bg.screenCenter();
 
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
